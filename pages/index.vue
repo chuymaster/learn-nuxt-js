@@ -16,22 +16,32 @@ export default {
     },
   data() {
     return {
-      loadedPosts: [
+      }
+  }, 
+  asyncData(context, callback) {
+    setTimeout(() => {
+      callback(null,
+      {
+        loadedPosts: [
         {
-          id: 1,
+          id: '1',
           title: "My post 1",
           previewText: "Super amazing, thanks for that!",
           thumbnail:
             "https://www.amd.com/system/files/59364-radeon-vega-1260x709.jpg"
         }, {
-          id: 2,
+          id: '2',
           title: "My post 2",
           previewText: "Super amazing, thanks for that!",
           thumbnail:
             "https://www.amd.com/system/files/59364-radeon-vega-1260x709.jpg"
         }
-      ]
+        ]
       }
+    )}, 1500)
+  },
+  created() {
+    
   }
 }
 </script>
