@@ -3,30 +3,16 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-    <section class="featured-posts">
-      <PostPreview
-      id="1"
-      thumbnail='https://cdn.wccftech.com/wp-content/uploads/2018/10/Intel-9th-Gen-Core-2-Custom-2060x1317.jpg'
-      title="Hello there!"
-      previewText="This is my first post!"
-      />
-      
-      <PostPreview
-      id="2"
-      thumbnail='https://www.extremetech.com/wp-content/uploads/2016/11/Intel-Chipset-640x353.jpg'
-      title="Hello there!"
-      previewText="This is my second post!"
-      />
-    </section>
+    <PostList />
   </div>
 </template>
 
 <script>
-import PostPreview from "@/components/Posts/PostPreview";
+import PostList from "@/components/Posts/PostList";
 
 export default {
   components: {
-    PostPreview
+    PostList
   }
 };
 </script>
@@ -39,6 +25,7 @@ export default {
   box-sizing: border-box;
   background-position: center;
   background-size: cover;
+  background-image: url('~assets/images/main-page-background.jpg')
 }
 
 .intro h1 {
@@ -60,14 +47,5 @@ export default {
   .intro h1 {
     font-size: 2rem;
   }
-}
-
-.featured-posts {
-  display: flex;
-  padding: 20px;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
 }
 </style>
