@@ -1,42 +1,41 @@
 <template>
-    <div class="single-post-page">
-        <section class="post">
-            <h1 class="post-title">{{ loadedPost.title }}</h1>
-            <div class="post-details">
-                <div class="post-detail">
-                    Last updated on {{ loadedPost.updatedDate }}
-                </div>
-                <div class="post-detail">
-                    Written by {{ loadedPost.author }}
-                </div>
-            </div>
-            <p class="post-content">{{ loadedPost.content }}</p>
-        </section>
-        <section class="post-feedback">
-            <p>Leave your comment to <a href="mailto:chuymaster3@hotmail.com"></a></p>
-        </section>
-    </div>
+  <div class="single-post-page">
+    <section class="post">
+      <h1 class="post-title">{{ loadedPost.title }}</h1>
+      <div class="post-details">
+        <div class="post-detail">Last updated on {{ loadedPost.updatedDate }}</div>
+        <div class="post-detail">Written by {{ loadedPost.author }}</div>
+      </div>
+      <p class="post-content">{{ loadedPost.content }}</p>
+    </section>
+    <section class="post-feedback">
+      <p>
+        Leave your comment to
+        <a href="mailto:chuymaster3@hotmail.com"></a>
+      </p>
+    </section>
+  </div>
 </template>
 
 <script>
 export default {
-  asyncdata(context, callback) {
+  asyncData(context, callback) {
     setTimeout(() => {
       callback(null, {
         loadedPost: {
-          id: '2',
+          id: "1",
           title: "My post (ID: " + context.route.params.id + ")",
           previewText: "Super amazing, thanks for that!",
-          author: 'Maxx',
+          author: "Maxx",
           updatedDate: new Date(),
-          content: 'Super amazing, thanks for that! SUPER GOOD LONG POST!',
+          content: "Super amazing, thanks for that! SUPER GOOD LONG POST!",
           thumbnail:
             "https://www.amd.com/system/files/59364-radeon-vega-1260x709.jpg"
         }
-      })
-    }, 1000)
+      });
+    }, 1000);
   }
-}
+};
 </script>
 
 
