@@ -14,42 +14,10 @@ export default {
   components: {
     PostList
     },
-  data() {
-    return {
-      }
-  }, 
-  asyncData(context) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve({
-          loadedPosts: [
-            {
-              id: '1',
-              title: "My post 1",
-              previewText: "Super amazing, thanks for that!",
-              thumbnail:
-                "https://www.amd.com/system/files/59364-radeon-vega-1260x709.jpg"
-            },
-            {
-              id: '2',
-              title: "My post 2",
-              previewText: "Super amazing, thanks for that!",
-              thumbnail:
-                "https://www.amd.com/system/files/59364-radeon-vega-1260x709.jpg"
-            }
-          ]
-        });
-      }, 1000);
-    })
-      .then(data => {
-        return data;
-      })
-      .catch(e => {
-        context.error(e);
-      });
-  },
-  created() {
-    
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    }
   }
 }
 </script>
