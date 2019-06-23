@@ -1,19 +1,13 @@
 <template>
     <section class="posts-list">
       <PostPreview
-      id="1"
+      v-for="post of posts"
+      :key="post.id"
+      :id="post.id"
       :is-admin="isAdmin"
-      thumbnail='https://cdn.wccftech.com/wp-content/uploads/2018/10/Intel-9th-Gen-Core-2-Custom-2060x1317.jpg'
-      title="Hello there!"
-      previewText="This is my first post!"
-      />
-      
-      <PostPreview
-      id="2"
-      :is-admin="isAdmin"
-      thumbnail='https://www.extremetech.com/wp-content/uploads/2016/11/Intel-Chipset-640x353.jpg'
-      title="Hello there!"
-      previewText="This is my second post!"
+      :thumbnail='post.thumbnail'
+      :title="post.title"
+      :previewText="post.previewText"
       />
     </section>
 </template>
@@ -29,6 +23,10 @@ export default {
       isAdmin: {
           type: Boolean,
           default: false
+      },
+      posts: {
+        type: Array,
+        required: true
       }
   }
 };

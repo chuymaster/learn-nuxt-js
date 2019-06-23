@@ -3,7 +3,7 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-    <PostList />
+    <PostList :posts="loadedPosts"/>
   </div>
 </template>
 
@@ -13,8 +13,27 @@ import PostList from "@/components/Posts/PostList";
 export default {
   components: {
     PostList
+    },
+  data() {
+    return {
+      loadedPosts: [
+        {
+          id: 1,
+          title: "My post 1",
+          previewText: "Super amazing, thanks for that!",
+          thumbnail:
+            "https://www.amd.com/system/files/59364-radeon-vega-1260x709.jpg"
+        }, {
+          id: 2,
+          title: "My post 2",
+          previewText: "Super amazing, thanks for that!",
+          thumbnail:
+            "https://www.amd.com/system/files/59364-radeon-vega-1260x709.jpg"
+        }
+      ]
+      }
   }
-};
+}
 </script>
 
 <style>
@@ -25,7 +44,7 @@ export default {
   box-sizing: border-box;
   background-position: center;
   background-size: cover;
-  background-image: url('~assets/images/main-page-background.jpg')
+  background-image: url("~assets/images/main-page-background.jpg");
 }
 
 .intro h1 {
