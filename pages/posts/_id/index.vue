@@ -19,21 +19,27 @@
 
 <script>
 export default {
-  asyncData(context, callback) {
-    setTimeout(() => {
-      callback(null, {
-        loadedPost: {
-          id: "1",
-          title: "My post (ID: " + context.route.params.id + ")",
-          previewText: "Super amazing, thanks for that!",
-          author: "Maxx",
-          updatedDate: new Date(),
-          content: "Super amazing, thanks for that! SUPER GOOD LONG POST!",
-          thumbnail:
-            "https://www.amd.com/system/files/59364-radeon-vega-1260x709.jpg"
-        }
-      });
-    }, 1000);
+  asyncData(context) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({
+          loadedPost: {
+            id: "1",
+            title: "My post (ID: " + context.route.params.id + ")",
+            previewText: "Super amazing, thanks for that!",
+            author: "Maxx",
+            updatedDate: new Date(),
+            content: "Super amazing, thanks for that! SUPER GOOD LONG POST!",
+            thumbnail:
+              "https://www.amd.com/system/files/59364-radeon-vega-1260x709.jpg"
+          }
+        });
+      }, 1000);
+    }).then( data => {
+      return data
+    }).catch(e => {
+      context.error(e);
+    });
   }
 };
 </script>
