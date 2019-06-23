@@ -6,7 +6,8 @@
 export default {
     validate(data) {
         return /^\d+$/.test(data.params.id) // Check if id param is number
-    }
+    },
+    layout: 'users'
 }
 </script>
 
